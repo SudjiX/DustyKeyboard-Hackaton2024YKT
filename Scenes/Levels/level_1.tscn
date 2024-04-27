@@ -1,13 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://uay3w2si2c0d"]
+[gd_scene load_steps=17 format=3 uid="uid://uay3w2si2c0d"]
 
+[ext_resource type="Script" path="res://Scripts/Level/level_1.gd" id="1_ke77p"]
 [ext_resource type="PackedScene" uid="uid://n50xxetaonvt" path="res://Scenes/Player/player.tscn" id="1_vmr02"]
 [ext_resource type="Texture2D" uid="uid://dtmijvy8aexk" path="res://Assets/Background/background_layer_1.png" id="2_vikpe"]
 [ext_resource type="Texture2D" uid="uid://bxaig3bb453lg" path="res://Assets/Background/background_layer_2.png" id="3_x53kj"]
 [ext_resource type="Texture2D" uid="uid://bryrf6txxx2kg" path="res://Assets/Background/background_layer_3.png" id="4_83ngi"]
+[ext_resource type="PackedScene" uid="uid://w73a8lcmbie4" path="res://Scenes/Environment/Buildings/building.tscn" id="4_qkskw"]
 [ext_resource type="Texture2D" uid="uid://cci3mqick21mw" path="res://Assets/Tiles/Map_tileset.png" id="5_yi66r"]
 [ext_resource type="FontFile" uid="uid://c4ma3g16o7pg0" path="res://Fonts/Silkscreen [RUS by Mr.Enot].ttf" id="7_vpial"]
 [ext_resource type="PackedScene" uid="uid://b6vauhktd0uq4" path="res://Scenes/Enemies/Enemy1/enemy_g_1.tscn" id="8_qftph"]
 [ext_resource type="PackedScene" uid="uid://ej52y8o0ewji" path="res://Scenes/Loot/Money/money.tscn" id="8_wf062"]
+[ext_resource type="Texture2D" uid="uid://bdcm1yfbsc0cw" path="res://Assets/Light/circle.png" id="11_worxj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txidk"]
 texture = ExtResource("5_yi66r")
@@ -1293,9 +1296,15 @@ func _process(_delta):
 	text = \"деньги: \" + str($\"../../Player/Player\".money)
 "
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ft0o1"]
+polygon = PackedVector2Array(-2959, 640, 209, 640, 241, 624, 329.25, 624, 1119, 624, 1151, 640, 3456, 640, 3457, 722, -2961, 720)
+
 [node name="Level1" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_ke77p")
 
 [node name="Background" type="ParallaxBackground" parent="."]
+layer = -1
 offset = Vector2(0, 425)
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 0, 425)
@@ -1328,6 +1337,9 @@ position = Vector2(640, 360)
 scale = Vector2(4, 4)
 texture = ExtResource("4_83ngi")
 
+[node name="Building" parent="." instance=ExtResource("4_qkskw")]
+position = Vector2(303, 561)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2gvo6")
 format = 2
@@ -1336,7 +1348,7 @@ layer_0/tile_data = PackedInt32Array(2621440, 65536, 0, 2621441, 131072, 0, 2621
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Player" parent="Player" instance=ExtResource("1_vmr02")]
-position = Vector2(74, 625)
+position = Vector2(278, 608)
 
 [node name="PlayerUi" type="CanvasLayer" parent="."]
 
@@ -1360,6 +1372,15 @@ theme_override_font_sizes/font_size = 30
 text = "Деньги"
 script = SubResource("GDScript_g4tai")
 
+[node name="DayText" type="Label" parent="PlayerUi"]
+offset_left = 14.0
+offset_top = 71.0
+offset_right = 210.0
+offset_bottom = 110.0
+theme_override_fonts/font = ExtResource("7_vpial")
+theme_override_font_sizes/font_size = 20
+text = "Время:"
+
 [node name="Loot" type="Node2D" parent="."]
 
 [node name="Money" parent="Loot" instance=ExtResource("8_wf062")]
@@ -1375,9 +1396,48 @@ position = Vector2(389, 618)
 
 [node name="Enemy_g1" parent="Enemies" instance=ExtResource("8_qftph")]
 position = Vector2(531, 609)
+collision_layer = 1
 
 [node name="Enemy_g2" parent="Enemies" instance=ExtResource("8_qftph")]
 position = Vector2(688, 608)
+collision_layer = 1
 
 [node name="Enemy_g3" parent="Enemies" instance=ExtResource("8_qftph")]
 position = Vector2(834, 609)
+collision_layer = 1
+
+[node name="DayNight" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Lights" type="Node2D" parent="."]
+position = Vector2(352, 595)
+scale = Vector2(0.385, 0.3125)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
+position = Vector2(-914.286, -1904)
+scale = Vector2(2.5974, 3.2)
+enabled = false
+energy = 1.1
+blend_mode = 1
+range_layer_min = -1
+
+[node name="Lamp" type="PointLight2D" parent="Lights"]
+color = Color(0.717647, 0.560784, 0.25098, 1)
+energy = 1.7
+shadow_enabled = true
+texture = ExtResource("11_worxj")
+
+[node name="Lamp2" type="PointLight2D" parent="Lights"]
+position = Vector2(-251.948, 0)
+color = Color(0.717647, 0.560784, 0.25098, 1)
+energy = 1.7
+shadow_enabled = true
+texture = ExtResource("11_worxj")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Lights"]
+position = Vector2(-909.091, -1888)
+scale = Vector2(2.5974, 3.2)
+occluder = SubResource("OccluderPolygon2D_ft0o1")
+
+[connection signal="timeout" from="DayNight" to="." method="_on_day_night_timeout"]
