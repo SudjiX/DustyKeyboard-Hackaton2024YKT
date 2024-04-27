@@ -1,8 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://emgsa8dgt2xw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_al68t"]
+radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_amftu"]
+radius = 13.0
 
 [node name="DamageBox" type="Node2D"]
 

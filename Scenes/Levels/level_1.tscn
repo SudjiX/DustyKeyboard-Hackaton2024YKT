@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://uay3w2si2c0d"]
+[gd_scene load_steps=19 format=3 uid="uid://uay3w2si2c0d"]
 
 [ext_resource type="Script" path="res://Scripts/Level/level_1.gd" id="1_ke77p"]
 [ext_resource type="PackedScene" uid="uid://n50xxetaonvt" path="res://Scenes/Player/player.tscn" id="1_vmr02"]
@@ -1296,6 +1296,15 @@ func _process(_delta):
 	text = \"деньги: \" + str($\"../../Player/Player\".money)
 "
 
+[sub_resource type="Animation" id="Animation_rhmq4"]
+resource_name = "Text_fade_in"
+length = 9.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nkhdy"]
+_data = {
+"Text_fade_in": SubResource("Animation_rhmq4")
+}
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ft0o1"]
 polygon = PackedVector2Array(-2959, 640, 209, 640, 241, 624, 329.25, 624, 1119, 624, 1151, 640, 3456, 640, 3457, 722, -2961, 720)
 
@@ -1381,6 +1390,27 @@ theme_override_fonts/font = ExtResource("7_vpial")
 theme_override_font_sizes/font_size = 20
 text = "Время:"
 
+[node name="Text" type="Label" parent="PlayerUi"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -30.5
+offset_right = 167.0
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_vpial")
+theme_override_font_sizes/font_size = 80
+text = "Привет"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerUi"]
+libraries = {
+"": SubResource("AnimationLibrary_nkhdy")
+}
+
 [node name="Loot" type="Node2D" parent="."]
 
 [node name="Money" parent="Loot" instance=ExtResource("8_wf062")]
@@ -1394,20 +1424,7 @@ position = Vector2(389, 618)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy_g1" parent="Enemies" instance=ExtResource("8_qftph")]
-position = Vector2(531, 609)
-collision_layer = 1
-
-[node name="Enemy_g2" parent="Enemies" instance=ExtResource("8_qftph")]
-position = Vector2(688, 608)
-collision_layer = 1
-
-[node name="Enemy_g3" parent="Enemies" instance=ExtResource("8_qftph")]
-position = Vector2(834, 609)
-collision_layer = 1
-
 [node name="DayNight" type="Timer" parent="."]
-wait_time = 2.0
 autostart = true
 
 [node name="Lights" type="Node2D" parent="."]
@@ -1418,7 +1435,7 @@ scale = Vector2(0.385, 0.3125)
 position = Vector2(-914.286, -1904)
 scale = Vector2(2.5974, 3.2)
 enabled = false
-energy = 1.1
+energy = 0.95
 blend_mode = 1
 range_layer_min = -1
 
@@ -1439,5 +1456,8 @@ texture = ExtResource("11_worxj")
 position = Vector2(-909.091, -1888)
 scale = Vector2(2.5974, 3.2)
 occluder = SubResource("OccluderPolygon2D_ft0o1")
+
+[node name="Enemy_g1" parent="." instance=ExtResource("8_qftph")]
+position = Vector2(494, 609)
 
 [connection signal="timeout" from="DayNight" to="." method="_on_day_night_timeout"]

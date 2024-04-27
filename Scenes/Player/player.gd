@@ -14,7 +14,8 @@ enum {
 	BLOCK,
 	SLIDE,
 	JUMP,
-	TIME}
+	DAMAGE,
+	DEATH}
 
 const SPEED = 120.0
 const JUMP_VELOCITY = -300.0
@@ -24,12 +25,22 @@ var state = MOVE
 var run_speed = 1
 var combo = false
 var attack_cooldown = false
+var player_pos
+
 #Гравитация
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-#var game_time = preload("res://Scenes/game_time.tscn")
+func _ready():
+	Signals.connect("enemy_attack", Callable (self, "on_damage_recieved"))
 
 func _physics_process(delta):
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	if velocity.y > 0:
+		animation_player.play("Fall")
+	if health <= 0:
+		health = 0
+		state = DEATH
 	match state:
 		MOVE:
 			move_state()
@@ -45,25 +56,21 @@ func _physics_process(delta):
 			slide_state()
 		JUMP:
 			jump_state()
-		TIME:
-			pass
-	
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	if Input.is_action_just_pressed("Attack"):
-		animation_player.play("Attack1")
-
-	if velocity.y > 0:
-		animation_player.play("Fall")
-		
-	if health <= 0:
-		health = 0
-		animation_player.play("Death")
-		await animation_player.animation_finished
-		queue_free()
-		get_tree().change_scene_to_file("res://Scenes/Menu/menu.tscn")
+		DAMAGE:
+			damage_state()
+		DEATH:
+			death_state()
 	move_and_slide()
+	
+	player_pos = self.position
+	Signals.emit_signal("player_position_update", player_pos)
+	
+
+func death_state():
+	animation_player.play("Death")
+	await animation_player.animation_finished
+	queue_free()
+	get_tree().change_scene_to_file("res://Scenes/Menu/menu.tscn")
 
 func move_state ():
 	var direction = Input.get_axis("Move_Left", "Move_Right")
@@ -146,3 +153,14 @@ func attack_freeze ():
 	attack_cooldown = true
 	await get_tree().create_timer(1.0).timeout
 	attack_cooldown = false
+	
+func damage_state ():
+	animation_player.play("Damage")
+	await animation_player.animation_finished
+	state = MOVE
+
+func on_damage_recieved (enemy_damage):
+	state = DAMAGE
+	health -= enemy_damage
+	print(health)
+	

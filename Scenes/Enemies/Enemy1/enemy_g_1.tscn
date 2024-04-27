@@ -127,3 +127,5 @@ animations = [{
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_4l30s")
 animation = &"Death"
+
+[editable path="AttackDirection/DamageBox"]
