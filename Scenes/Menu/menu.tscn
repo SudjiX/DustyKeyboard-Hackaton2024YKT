@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnubtb2j01vu4"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/menu.gd" id="1_y36cj"]
+[ext_resource type="FontFile" uid="uid://c4ma3g16o7pg0" path="res://Fonts/Silkscreen [RUS by Mr.Enot].ttf" id="2_b146r"]
+[ext_resource type="PackedScene" uid="uid://nuam2iv4upg1" path="res://Scenes/Background/background.tscn" id="3_0ilhj"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_y36cj")
+
+[node name="Play_button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 519.0
+offset_top = 261.0
+offset_right = 758.0
+offset_bottom = 371.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_b146r")
+theme_override_font_sizes/font_size = 25
+text = "Начать игру"
+
+[node name="Quit_button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 519.0
+offset_top = 406.0
+offset_right = 758.0
+offset_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_b146r")
+theme_override_font_sizes/font_size = 25
+text = "Выход
+"
+
+[node name="Background" parent="." instance=ExtResource("3_0ilhj")]
+
+[connection signal="pressed" from="Play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Quit_button" to="." method="_on_quit_button_pressed"]
