@@ -94,7 +94,6 @@ func _on_damage_received (player_damage):
 	if health <= 0:
 		state = DEATH
 	else:
-		state = IDLE
 		state = DAMAGE
 	
 

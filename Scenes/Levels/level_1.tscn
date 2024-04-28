@@ -1,10 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://uay3w2si2c0d"]
+[gd_scene load_steps=21 format=3 uid="uid://uay3w2si2c0d"]
 
 [ext_resource type="Script" path="res://Scripts/Level/level_1.gd" id="1_ke77p"]
 [ext_resource type="PackedScene" uid="uid://n50xxetaonvt" path="res://Scenes/Player/player.tscn" id="1_vmr02"]
-[ext_resource type="Texture2D" uid="uid://dtmijvy8aexk" path="res://Assets/Background/background_layer_1.png" id="2_vikpe"]
-[ext_resource type="Texture2D" uid="uid://bxaig3bb453lg" path="res://Assets/Background/background_layer_2.png" id="3_x53kj"]
-[ext_resource type="Texture2D" uid="uid://bryrf6txxx2kg" path="res://Assets/Background/background_layer_3.png" id="4_83ngi"]
 [ext_resource type="PackedScene" uid="uid://w73a8lcmbie4" path="res://Scenes/Environment/Buildings/building.tscn" id="4_qkskw"]
 [ext_resource type="Texture2D" uid="uid://cci3mqick21mw" path="res://Assets/Tiles/Map_tileset.png" id="5_yi66r"]
 [ext_resource type="FontFile" uid="uid://c4ma3g16o7pg0" path="res://Fonts/Silkscreen [RUS by Mr.Enot].ttf" id="7_vpial"]
@@ -15,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bdbeytccutkm3" path="res://Scenes/Enemies/enemy_ground.tscn" id="11_6rsru"]
 [ext_resource type="Texture2D" uid="uid://imbmt7pd3jpq" path="res://Assets/UI/Health/healthbar - 3.png" id="11_ivntw"]
 [ext_resource type="Texture2D" uid="uid://bdcm1yfbsc0cw" path="res://Assets/Light/circle.png" id="11_worxj"]
+[ext_resource type="PackedScene" uid="uid://nuam2iv4upg1" path="res://Scenes/Background/background.tscn" id="13_cnesn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txidk"]
 texture = ExtResource("5_yi66r")
@@ -1361,40 +1359,11 @@ polygon = PackedVector2Array(-2959, 640, 209, 640, 241, 624, 329.25, 624, 1119, 
 position = Vector2(1, 0)
 script = ExtResource("1_ke77p")
 
-[node name="Background" type="ParallaxBackground" parent="."]
+[node name="Background" parent="." instance=ExtResource("13_cnesn")]
 layer = -1
-offset = Vector2(0, 425)
-scale = Vector2(0.3, 0.3)
-transform = Transform2D(0.3, 0, 0, 0.3, 0, 425)
-follow_viewport_scale = 50.0
-scroll_offset = Vector2(35.8307, -2204.22)
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2(0.2, 1)
-motion_mirroring = Vector2(1280, 0)
-
-[node name="BackgroundLayer1" type="Sprite2D" parent="Background/ParallaxLayer"]
-position = Vector2(640, 360)
-scale = Vector2(4, 4)
-texture = ExtResource("2_vikpe")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2(0.5, 1)
-motion_mirroring = Vector2(1280, 0)
-
-[node name="BackgroundLayer2" type="Sprite2D" parent="Background/ParallaxLayer2"]
-position = Vector2(640, 360)
-scale = Vector2(4, 4)
-texture = ExtResource("3_x53kj")
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2(0.7, 1)
-motion_mirroring = Vector2(1280, 0)
-
-[node name="BackgroundLayer3" type="Sprite2D" parent="Background/ParallaxLayer3"]
-position = Vector2(640, 360)
-scale = Vector2(4, 4)
-texture = ExtResource("4_83ngi")
+offset = Vector2(0, 570.32)
+scale = Vector2(0.12, 0.12)
+transform = Transform2D(0.12, 0, 0, 0.12, 0, 570.32)
 
 [node name="Building" parent="." instance=ExtResource("4_qkskw")]
 position = Vector2(303, 561)
@@ -1419,9 +1388,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Money" type="Label" parent="PlayerUi"]
 anchors_preset = -1
-anchor_top = 0.00416667
-anchor_right = 0.015625
-anchor_bottom = 0.00416667
+anchor_top = 0.0166667
+anchor_right = 0.0625
+anchor_bottom = 0.0166667
 offset_left = 12.0
 offset_top = 37.0
 offset_right = 117.0
@@ -1534,8 +1503,8 @@ libraries = {
 [node name="TextureProgressBar" type="TextureProgressBar" parent="PlayerUi"]
 offset_left = 7.0
 offset_top = 3.0
-offset_right = 1059.0
-offset_bottom = 153.0
+offset_right = 251.0
+offset_bottom = 38.0
 texture_under = ExtResource("9_wbdmp")
 texture_over = ExtResource("10_nkyi5")
 texture_progress = ExtResource("11_ivntw")

@@ -13,33 +13,37 @@ follow_viewport_scale = 96.238
 script = ExtResource("1_jgjox")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-position = Vector2(553.975, 297.908)
-motion_scale = Vector2(0, 1)
-motion_mirroring = Vector2(1277.17, 0)
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1648.59, 0)
 
 [node name="BackgroundLayer1" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(163.206, -48.8578)
+scale = Vector2(0.685653, 0.726439)
 texture = ExtResource("2_ibp5m")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-position = Vector2(553.975, 297.908)
 motion_scale = Vector2(0.2, 1)
-motion_mirroring = Vector2(1278.03, 0)
+motion_mirroring = Vector2(1648.59, 0)
 
 [node name="BackgroundLayer2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(153.85, 13.5138)
+scale = Vector2(0.428121, 0.457295)
 texture = ExtResource("3_4hqnd")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
-position = Vector2(553.975, 297.908)
 motion_scale = Vector2(0.4, 1)
-motion_mirroring = Vector2(1278.03, 0)
+motion_mirroring = Vector2(1163.06, 0)
 
 [node name="BackgroundLayer3" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(-82.1226, 66.5298)
+scale = Vector2(0.485, 0.485)
 texture = ExtResource("4_31mp1")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
-position = Vector2(553.975, 297.908)
 motion_scale = Vector2(0.6, 1)
-motion_mirroring = Vector2(1278.03, 0)
+motion_mirroring = Vector2(1163.06, 0)
 
 [node name="BackgroundLayer4" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(-74.8459, 66.5298)
+scale = Vector2(0.485, 0.485)
 texture = ExtResource("5_06wtn")
