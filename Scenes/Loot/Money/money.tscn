@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ej52y8o0ewji"]
+[gd_scene load_steps=13 format=3 uid="uid://ej52y8o0ewji"]
 
 [ext_resource type="Texture2D" uid="uid://dpx7bsaedpaq5" path="res://Assets/Loot/Money/Coin.png" id="1_2ydvs"]
 [ext_resource type="Script" path="res://Scripts/Loot/Money/money.gd" id="1_46hdp"]
+[ext_resource type="PackedScene" uid="uid://crr0xcy7dgtgs" path="res://Scenes/Light/lamp.tscn" id="3_pafp8"]
+[ext_resource type="AudioStream" uid="uid://23kqxhc7wo5h" path="res://Sound/brosok-odnoy-monetki-v-obschuyu-kuchu.mp3" id="4_18gq0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lke8o"]
 radius = 8.0
@@ -49,6 +51,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o37j4"]
+load_path = "res://.godot/imported/circle.png-aefd88a2e5016501a95cafed4fb841c6.ctex"
+
 [node name="Money" type="Area2D"]
 scale = Vector2(0.7, 0.7)
 collision_mask = 2
@@ -63,6 +68,14 @@ scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_0q8lf")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.435354
+frame = 4
+
+[node name="Lamp" parent="." instance=ExtResource("3_pafp8")]
+scale = Vector2(0.0964286, 0.0999351)
+color = Color(1, 0.815686, 0, 1)
+texture = SubResource("CompressedTexture2D_o37j4")
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_18gq0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

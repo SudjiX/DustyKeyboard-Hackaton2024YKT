@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dq054k8wb36v8"
+path="res://.godot/imported/Wood Land.wav-044346188ccd01f12b2666a0903107eb.sample"
+
+[deps]
+
+source_file="res://Sound/Footsteps/Wood/Wood Land.wav"
+dest_files=["res://.godot/imported/Wood Land.wav-044346188ccd01f12b2666a0903107eb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

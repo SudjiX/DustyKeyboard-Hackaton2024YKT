@@ -1,8 +1,185 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnubtb2j01vu4"]
+[gd_scene load_steps=30 format=3 uid="uid://bnubtb2j01vu4"]
 
 [ext_resource type="Script" path="res://Scripts/Menu/menu.gd" id="1_y36cj"]
 [ext_resource type="FontFile" uid="uid://c4ma3g16o7pg0" path="res://Fonts/Silkscreen [RUS by Mr.Enot].ttf" id="2_b146r"]
 [ext_resource type="PackedScene" uid="uid://nuam2iv4upg1" path="res://Scenes/Background/background.tscn" id="3_0ilhj"]
+[ext_resource type="Texture2D" uid="uid://dufsoxgao15ix" path="res://Assets/Game_name.png" id="4_n6y37"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clo2k"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(0, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikf2m"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(925, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j81fw"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(1850, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmnpm"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(2775, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5el5o"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(3700, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gfbr"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(4625, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo2j3"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(5550, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsnpg"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(6475, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byl2b"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(7400, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7tfk"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(8325, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoen4"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(9250, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yncjy"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(10175, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glgg1"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(11100, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41rye"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(12025, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06nnc"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(12950, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gujx3"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(13875, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7nko"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(14800, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abdnj"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(15725, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f34uy"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(16650, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_375w1"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(17575, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs1v4"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(18500, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuhm4"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(19425, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp2n4"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(20350, 0, 925, 638)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_370vd"]
+atlas = ExtResource("4_n6y37")
+region = Rect2(21275, 0, 925, 638)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hi4rj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clo2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikf2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j81fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmnpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5el5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gfbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo2j3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsnpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byl2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7tfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoen4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yncjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glgg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41rye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06nnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gujx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7nko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abdnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f34uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_375w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rs1v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuhm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp2n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_370vd")
+}],
+"loop": true,
+"name": &"Game_name",
+"speed": 5.0
+}]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_y36cj")
@@ -46,6 +223,15 @@ text = "Выход
 metadata/_edit_use_anchors_ = true
 
 [node name="Background" parent="." instance=ExtResource("3_0ilhj")]
+offset = Vector2(21.755, 225.98)
+transform = Transform2D(1.195, 0, 0, 1.195, 21.755, 225.98)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(637, 203)
+scale = Vector2(0.61442, 0.61442)
+sprite_frames = SubResource("SpriteFrames_hi4rj")
+animation = &"Game_name"
+frame = 11
 
 [connection signal="pressed" from="Play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Quit_button" to="." method="_on_quit_button_pressed"]

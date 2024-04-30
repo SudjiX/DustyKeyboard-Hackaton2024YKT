@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bi6aa80opwgdc"
+path="res://.godot/imported/Dirt Land.wav-3016625331d75c58235704b8eb8080d2.sample"
+
+[deps]
+
+source_file="res://Sound/Footsteps/Dirt/Dirt Land.wav"
+dest_files=["res://.godot/imported/Dirt Land.wav-3016625331d75c58235704b8eb8080d2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

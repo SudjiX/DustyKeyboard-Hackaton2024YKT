@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cblt8ktr6nx80"
+path="res://.godot/imported/Sword Attack 3.wav-433844c8351a9cefc1b433b6239de8bc.sample"
+
+[deps]
+
+source_file="res://Sound/Sword Attacks Hits and Blocks/Sword Attacks Hits and Blocks/Sword Attack 3.wav"
+dest_files=["res://.godot/imported/Sword Attack 3.wav-433844c8351a9cefc1b433b6239de8bc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

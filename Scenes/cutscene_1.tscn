@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxx3ieh6dvw25"]
+
+[ext_resource type="Texture2D" uid="uid://bkycox6hg8mne" path="res://Cutscenes/Scene1/1.jpg" id="1_reidl"]
+[ext_resource type="Texture2D" uid="uid://df1wuhfr81cyg" path="res://Cutscenes/Scene1/2.jpg" id="2_rtkiy"]
+[ext_resource type="Texture2D" uid="uid://bklfiy7jgda03" path="res://Cutscenes/Scene1/3.jpg" id="3_8w80o"]
+[ext_resource type="Texture2D" uid="uid://bugba78yd1dba" path="res://Cutscenes/Scene1/4.jpg" id="4_ihtqr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_acq5b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_reidl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rtkiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8w80o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ihtqr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ka3uf"]
+resource_name = "Cutscene"
+length = 13.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.1, 6, 9, 11.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["default"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x0u02"]
+_data = {
+"Cutscene": SubResource("Animation_ka3uf")
+}
+
+[node name="Cutscene1" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 935.0
+offset_top = 42.0
+offset_right = 1139.0
+offset_bottom = 146.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(642, 353)
+scale = Vector2(1.26885, 1.26885)
+sprite_frames = SubResource("SpriteFrames_acq5b")
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x0u02")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

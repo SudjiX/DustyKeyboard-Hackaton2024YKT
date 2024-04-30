@@ -546,6 +546,9 @@ shape = SubResource("CapsuleShape2D_dwhty")
 position = Vector2(0, -4)
 scale = Vector2(0.157895, 0.157895)
 sprite_frames = SubResource("SpriteFrames_1fasa")
+frame = 0
 
 [node name="Lamp" parent="." index="4"]
 position = Vector2(79, -7)
+
+[editable path="AttackDirection/DamageBox"]

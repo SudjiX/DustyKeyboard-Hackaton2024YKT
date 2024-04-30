@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bdbeytccutkm3"]
+[gd_scene load_steps=50 format=3 uid="uid://bdbeytccutkm3"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Enemy_ground/enemy_ground.gd" id="1_k0d8t"]
 [ext_resource type="Texture2D" uid="uid://b7r4ipngsmo16" path="res://Assets/Enemies/Enemy1/Attack.png" id="2_tg58v"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ppedbtmboiip" path="res://Assets/Enemies/Enemy1/Idle.png" id="5_mww7x"]
 [ext_resource type="Texture2D" uid="uid://cmnc7cops8l4t" path="res://Assets/Enemies/Enemy1/Walk.png" id="6_l5ko0"]
 [ext_resource type="PackedScene" uid="uid://emgsa8dgt2xw" path="res://Scenes/Damage/damage_box.tscn" id="7_ob3m0"]
+[ext_resource type="AudioStream" uid="uid://c3lyi4n5621bs" path="res://Sound/Sword Attacks Hits and Blocks/Sword Attacks Hits and Blocks/Sword Attack 2.wav" id="8_ev0ml"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wah7g"]
 atlas = ExtResource("2_tg58v")
@@ -266,33 +267,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ddg2k"]
 radius = 11.0
 
-[sub_resource type="Animation" id="Animation_1nank"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AttackDirection/DamageBox/HitBox/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_8uac2"]
 length = 0.802
 tracks/0/type = "value"
@@ -330,6 +304,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D/Sword sound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_3o0xi"]
@@ -462,6 +448,45 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_1nank"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackDirection/DamageBox/HitBox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Sword sound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_gvld4"]
 length = 0.8
 tracks/0/type = "value"
@@ -552,19 +577,19 @@ _data = {
 "Walk": SubResource("Animation_7236w")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nwudf"]
-radius = 25.0
-height = 50.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wejb2"]
+size = Vector2(35, 33)
 
 [node name="Enemy_ground" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_k0d8t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
-scale = Vector2(0.653333, 0.650412)
+position = Vector2(-2, -1)
+scale = Vector2(0.573333, 0.573333)
 sprite_frames = SubResource("SpriteFrames_5fhuy")
 animation = &"Attack"
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ddg2k")
@@ -582,8 +607,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDirection/AttackRange"]
-position = Vector2(30, -5)
-shape = SubResource("CapsuleShape2D_nwudf")
+position = Vector2(22.5, -1.5)
+shape = SubResource("RectangleShape2D_wejb2")
 
 [node name="DamageBox" parent="AttackDirection" instance=ExtResource("7_ob3m0")]
 
@@ -592,7 +617,12 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="AttackDirection/DamageBox/HitBox" index="0"]
-position = Vector2(34, -6)
+position = Vector2(25, -4)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sword sound" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("8_ev0ml")
 
 [connection signal="body_entered" from="AttackDirection/AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="area_entered" from="AttackDirection/DamageBox/HitBox" to="." method="_on_hit_box_area_entered"]

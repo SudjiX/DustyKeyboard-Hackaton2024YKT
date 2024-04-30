@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var coin_sound = $CoinSound
 
 
 func _on_body_entered(body):
@@ -9,4 +10,5 @@ func _on_body_entered(body):
 		tween.tween_property(self,"position", position - Vector2(0, 25), 0.3)
 		tween1.tween_property(self,"modulate:a", 0, 0.3)
 		tween.tween_callback(queue_free)
+		coin_sound.play(0.0)
 		body.money += 1

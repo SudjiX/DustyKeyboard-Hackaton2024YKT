@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hackaton2024Yakutsk"
-run/main_scene="res://Scenes/Menu/menu.tscn"
+run/main_scene="res://Scenes/logo.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
@@ -81,6 +81,10 @@ Time={
 
 [layer_names]
 
+2d_render/layer_1="1"
+2d_render/layer_2="2"
+2d_render/layer_3="3"
+2d_render/layer_4="4"
 2d_physics/layer_1="Environment"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemies"

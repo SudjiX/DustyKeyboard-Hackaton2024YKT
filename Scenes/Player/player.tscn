@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://n50xxetaonvt"]
+[gd_scene load_steps=110 format=3 uid="uid://n50xxetaonvt"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_u04wt"]
 [ext_resource type="Texture2D" uid="uid://delkp6q8shgg6" path="res://Assets/Player/Nyrgun Bootur.png" id="2_e58al"]
@@ -314,29 +314,41 @@ region = Rect2(1596, 2585, 228, 235)
 atlas = ExtResource("2_e58al")
 region = Rect2(1824, 2585, 228, 235)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nacfe"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8gm7"]
 atlas = ExtResource("2_e58al")
-region = Rect2(0, 2115, 228, 235)
+region = Rect2(0, 2820, 228, 235)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c7oor"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s5hp"]
 atlas = ExtResource("2_e58al")
-region = Rect2(228, 2115, 228, 235)
+region = Rect2(228, 2820, 228, 235)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0gtr1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmlg7"]
 atlas = ExtResource("2_e58al")
-region = Rect2(456, 2115, 228, 235)
+region = Rect2(456, 2820, 228, 235)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_brkow"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mpbg"]
 atlas = ExtResource("2_e58al")
-region = Rect2(684, 2115, 228, 235)
+region = Rect2(684, 2820, 228, 235)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sfhps"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxlrg"]
 atlas = ExtResource("2_e58al")
-region = Rect2(912, 2115, 228, 235)
+region = Rect2(912, 2820, 228, 235)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_omrqo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sac46"]
 atlas = ExtResource("2_e58al")
-region = Rect2(1140, 2115, 228, 235)
+region = Rect2(1140, 2820, 228, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2hr0"]
+atlas = ExtResource("2_e58al")
+region = Rect2(1368, 2820, 228, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th66x"]
+atlas = ExtResource("2_e58al")
+region = Rect2(1596, 2820, 228, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we4vf"]
+atlas = ExtResource("2_e58al")
+region = Rect2(1824, 2820, 228, 235)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3w5bb"]
 animations = [{
@@ -628,22 +640,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nacfe")
+"texture": SubResource("AtlasTexture_o8gm7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c7oor")
+"texture": SubResource("AtlasTexture_4s5hp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0gtr1")
+"texture": SubResource("AtlasTexture_nmlg7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_brkow")
+"texture": SubResource("AtlasTexture_6mpbg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sfhps")
+"texture": SubResource("AtlasTexture_jxlrg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_omrqo")
+"texture": SubResource("AtlasTexture_sac46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2hr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th66x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we4vf")
 }],
 "loop": true,
 "name": &"Walk",
@@ -1150,7 +1171,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_5cu3m"]
-length = 0.6
+length = 0.9
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1159,10 +1180,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1220,16 +1241,16 @@ shape = SubResource("CapsuleShape2D_uw8cw")
 position = Vector2(0.499999, -7.5)
 scale = Vector2(0.197368, 0.182979)
 sprite_frames = SubResource("SpriteFrames_3w5bb")
-animation = &"Jump"
+animation = &"Walk"
 autoplay = "Idle"
-frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -30)
 zoom = Vector2(4.2, 4.2)
 process_callback = 0
 limit_top = 0
-limit_bottom = 720
+limit_bottom = 900
+limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

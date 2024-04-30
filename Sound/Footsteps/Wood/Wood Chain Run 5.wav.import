@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://tphyt4364ge4"
+path="res://.godot/imported/Wood Chain Run 5.wav-59264c25d0ccd0541807feaed6c46324.sample"
+
+[deps]
+
+source_file="res://Sound/Footsteps/Wood/Wood Chain Run 5.wav"
+dest_files=["res://.godot/imported/Wood Chain Run 5.wav-59264c25d0ccd0541807feaed6c46324.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

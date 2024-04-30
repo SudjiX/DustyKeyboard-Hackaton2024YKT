@@ -31,15 +31,15 @@ func _ready():
 
 func morning_state ():
 	var tween = get_tree().create_tween()
-	tween.tween_property(directional_light_2d, "energy", 0.1, 20)
+	tween.tween_property(directional_light_2d, "energy", 0.1, 30)
 	var tween1 = get_tree().create_tween()
-	tween1.tween_property(lamp, "energy", 0, 60)
+	tween1.tween_property(lamp, "energy", 0, 30)
 
 func evening_state (): 
 	var tween = get_tree().create_tween()
-	tween.tween_property(directional_light_2d, "energy", 0.90, 20)
+	tween.tween_property(directional_light_2d, "energy", 0.90, 30)
 	var tween1 = get_tree().create_tween()
-	tween1.tween_property(lamp, "energy", 1.5, 20)
+	tween1.tween_property(lamp, "energy", 1.5, 30)
 
 func _on_day_night_timeout():
 	match state:
@@ -60,3 +60,6 @@ func set_day_text ():
 
 func _on_player_health_changed(new_health):
 	health_bar.value = new_health
+
+
+

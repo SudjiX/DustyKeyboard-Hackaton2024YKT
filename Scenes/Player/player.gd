@@ -21,8 +21,8 @@ enum {
 	LOSE}
 
 
-const SPEED = 120.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 100.0
+const JUMP_VELOCITY = -350.0
 var max_health = 100
 var health
 var money = 0
@@ -104,7 +104,7 @@ func move_state ():
 		animated_sprite_2d.flip_h = false
 		$AttackDirection.rotation_degrees = 0
 	if Input.is_action_pressed("Run"):
-		run_speed = 1
+		run_speed = 1.5
 	else:
 		run_speed = 1
 

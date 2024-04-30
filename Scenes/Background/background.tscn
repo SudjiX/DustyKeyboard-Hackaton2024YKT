@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://02fgjnrvkx3n" path="res://Assets/Background/Tileset_template 3.png" id="5_06wtn"]
 
 [node name="Background" type="ParallaxBackground"]
+layer = -1
 scale = Vector2(1.195, 1.195)
 transform = Transform2D(1.195, 0, 0, 1.195, 0, 0)
 follow_viewport_scale = 96.238
@@ -14,18 +15,19 @@ script = ExtResource("1_jgjox")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 position = Vector2(553.975, 297.908)
-motion_scale = Vector2(0, 1)
+motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(1277.17, 0)
 
 [node name="BackgroundLayer1" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(0, -1083.68)
 texture = ExtResource("2_ibp5m")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 position = Vector2(553.975, 297.908)
 motion_scale = Vector2(0.2, 1)
-motion_mirroring = Vector2(1278.03, 0)
 
 [node name="BackgroundLayer2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(0, -1500)
 texture = ExtResource("3_4hqnd")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
@@ -34,12 +36,15 @@ motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(1278.03, 0)
 
 [node name="BackgroundLayer3" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(5.02092, -234.31)
+scale = Vector2(1, 1.03231)
 texture = ExtResource("4_31mp1")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
-position = Vector2(553.975, 297.908)
+position = Vector2(539.749, 397.49)
 motion_scale = Vector2(0.6, 1)
 motion_mirroring = Vector2(1278.03, 0)
 
 [node name="BackgroundLayer4" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(-28.4518, 15.8996)
 texture = ExtResource("5_06wtn")

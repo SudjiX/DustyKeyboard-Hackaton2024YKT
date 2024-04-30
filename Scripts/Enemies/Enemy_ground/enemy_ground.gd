@@ -32,7 +32,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player
 var direction
 var damage = 20
-var health = 100
+var health = 50
 
 func _ready():
 	Signals.connect("player_position_update", Callable(self, "_on_player_position_update"))
